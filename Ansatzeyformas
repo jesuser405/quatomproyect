@@ -1,0 +1,11 @@
+import rustworkx as rx
+from rustworkx.visualization import mpl_draw
+
+n = 4
+G = rx.PyGraph()
+G.add_nodes_from(range(n))
+# The edge syntax is (start, end, weight)
+edges = [(0, 1, 1.0), (0, 2, 1.0), (0, 3, 1.0), (1, 2, 1.0), (2, 3, 1.0)]
+G.add_edges_from(edges)
+
+mpl_draw(G, pos=rx.shell_layout(G), with_labels=True, edge_labels=str, node_color="#1192E8")
