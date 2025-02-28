@@ -8,3 +8,4 @@ hamiltonian = SparsePauliOp.from_list([("ZZII", 1), ("IZZI", 1), ("ZIIZ", 1), ("
 ansatz = QAOAAnsatz(hamiltonian, reps=2)
 # Draw
 ansatz.decompose(reps=3).draw("mpl")
+ansatz.decompose(reps=2).draw("mpl")

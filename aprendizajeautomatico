@@ -1,0 +1,10 @@
+from qiskit.circuit.library import ZZFeatureMap, TwoLocal
+
+data = [0.1, 0.2]
+
+zz_feature_map_reference = ZZFeatureMap(feature_dimension=2, reps=2)
+zz_feature_map_reference = zz_feature_map_reference.assign_parameters(data)
+
+variation_form = TwoLocal(2, ["ry", "rz"], "cz", reps=2)
+vqc_ansatz = zz_feature_map_reference.compose(variation_form)
+vqc_ansatz.decompose().draw("mpl")
